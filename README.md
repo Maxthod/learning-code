@@ -1,4 +1,4 @@
-# learning-code
+# Learning how to code
 Wanna become a developer ? Follow this guide
 
 
@@ -21,9 +21,9 @@ You will build this web page in html, css, javascript. You do not have to use an
 
 The web page must have a title.
 
-The web page must contain an image.
+The webpage must have a font that you apply using css.
 
-The web page must counter field with a button increase and decrease the counter.
+The web page must contain an image. The image must be of size 600 width, 400 height.
 
-Check [here](https://drive.google.com/file/d/1nFJC_3jM0Yn7S64HhcI3Qrw3DghprrKa/view?usp=sharing) for more details
+The web page must have a form which contains a counter field with a button increase and decrease the counter. The buttons must be styled with css. Check [here](https://drive.google.com/file/d/1nFJC_3jM0Yn7S64HhcI3Qrw3DghprrKa/view?usp=sharing) for a visual representation.
 
