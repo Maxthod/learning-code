@@ -46,29 +46,145 @@ Mission {
   superhero int ForeignKey superhero(id)
 }
 ```
-### GET /api/v1/superheroes
+
+### Super Hero Backend
+#### Endpoints
+```
+GET /api/v1/superheroes
 Returns a list of all the super heroes
 
-### POST /api/v1/superheroes
+POST /api/v1/superheroes
 Create a new hero
 
-### PUT /api/v1/superheroes/{id}
+PUT /api/v1/superheroes/{id}
 Update hero {id}
 
-### DELETE /api/v1/superheroes/{id}
+DELETE /api/v1/superheroes/{id}
 Delete hero {id}
 
-### GET /api/v1/missions
+GET /api/v1/missions
 Returns a list of all the missions
 
-### POST /api/v1/missions
+POST /api/v1/missions
 Create a new mission
 
-### PUT /api/v1/missions/{id}
+PUT /api/v1/missions/{id}
 Update mission {id}
 
-### DELETE /api/v1/missions/{id}
+DELETE /api/v1/missions/{id}
 Delete mission {id}
+```
+
+#### How to test your backend using [curl](https://curl.se/). Supposing your app runs on localhost port 3000
+```
+curl -X GET http://localhost:3000/api/v1/heroes
+  Status code: 200
+  Body: []
+
+curl -X GET http://localhost:3000/api/v1/missions
+  Status code: 200
+  Body: []
+
+curl -X POST -d '{"name": "superman", "superpower": "overpower"}' http://localhost:3000/api/v1/heroes
+  Status code: 201
+  Body: {
+          "id": 1, 
+          "name": "superman", 
+          "superpower": "overpower", 
+          "missions": []
+        }
+
+curl -X GET http://localhost:3000/api/v1/heroes
+  Status code: 200
+  Body: [
+          { 
+            "id": 1, 
+            "name": "superman",  
+            "superpower": "overpower", 
+            "missions": []
+          }
+        ]
+
+curl -X POST -d '{"name": "kill Lex Luthor", "superhero": 1}' http://localhost:3000/api/v1/missions
+  Status code: 201
+  Body: {
+          "id": 1, 
+          "name": "kill Lex Luthor", 
+          "superhero": 1
+        }
+
+curl -X GET http://localhost:3000/api/v1/heroes
+  Status code: 200
+  Body: [
+          { 
+            "id": 1, 
+            "name": "superman",  
+            "superpower": "overpower", 
+            "missions": [
+              {
+                "id": 1, 
+                "name": "kill Lex Luthor", 
+                "superhero": 1
+              }
+            ]
+          }
+        ]
+
+curl -X GET http://localhost:3000/api/v1/missions
+  Status code: 200
+  Body: [
+          {
+            "id": 1, 
+            "name": "kill Lex Luthor", 
+            "superhero": 1
+          }
+        ]
+
+
+curl -X PUT -d '{"name": "weakman", "description": "not so overpower now"}' http://localhost:3000/api/v1/heroes/1
+  Status code: 200
+  Body: {
+          "id": 1, 
+          "name": "weakman",  
+          "superpower": "not so overpower now", 
+          "missions": [
+            {
+              "id": 1, 
+              "name": "kill Lex Luthor", 
+              "superhero": 1
+            }
+          ]
+        }
+
+curl -X PUT -d '{"name": "Lex Luthor is not killable"}' http://localhost:3000/api/v1/missions/1
+  Status code: 200
+  Body: {
+          "id": 1, 
+          "name": "Lex Luthor is not killable", 
+          "superhero": 1
+        }
+
+curl -X DELETE http://localhost:3000/api/v1/heroes/1
+  Status code: 400
+  Body: {
+          "error": "resource-is-binded", 
+          "description": "Cannot delete resource hero(1) due to existing binding. Delete bindings before"
+        }
+
+curl -X DELETE http://localhost:3000/api/v1/missions/1
+  Status code: 200
+
+curl -X DELETE http://localhost:3000/api/v1/heroes/1
+  Status code: 200
+
+curl -X GET http://localhost:3000/api/v1/heroes
+  Status code: 200
+  Body: []
+
+curl -X GET http://localhost:3000/api/v1/missions
+  Status code: 200
+  Body: []
+```
 
 ## Homeworks
 Here a list of homeworks with increasing difficulties. 
@@ -100,4 +216,6 @@ The API must be RESTful.
 The API consume and produce JSON. 
 
 The API must implement all the functionalities describe in the Super Hero Project.
+
+The API must pass tests describe in the [Super Hero Backend Test](#how-to-test-your-backend-using-curl-supposing-your-app-runs-on-localhost-port-3000) section
 
