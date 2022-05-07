@@ -97,7 +97,8 @@ curl -X POST -d '{"name": "superman", "superpower": "overpower"}' http://localho
 curl -X GET http://localhost:3000/api/v1/heroes
   Status code: 200
   Body: [
-          { "id":1, 
+          { 
+            "id": 1, 
             "name": "superman",  
             "superpower": "overpower", 
             "missions": []
@@ -116,7 +117,7 @@ curl -X GET http://localhost:3000/api/v1/heroes
   Status code: 200
   Body: [
           { 
-            "id":1, 
+            "id": 1, 
             "name": "superman",  
             "superpower": "overpower", 
             "missions": [
@@ -129,10 +130,21 @@ curl -X GET http://localhost:3000/api/v1/heroes
           }
         ]
 
+curl -X GET http://localhost:3000/api/v1/missions
+  Status code: 200
+  Body: [
+          {
+            "id": 1, 
+            "name": "kill Lex Luthor", 
+            "superhero": 1
+          }
+        ]
+
+
 curl -X PUT -d '{"name": "weakman", "description": "not so overpower now"}' http://localhost:3000/api/v1/heroes/1
   Status code: 200
   Body: {
-          "id":1, 
+          "id": 1, 
           "name": "weakman",  
           "superpower": "not so overpower now", 
           "missions": [
@@ -152,9 +164,26 @@ curl -X PUT -d '{"name": "Lex Luthor is not killable"}' http://localhost:3000/ap
           "superhero": 1
         }
 
+curl -X DELETE http://localhost:3000/api/v1/heroes/1
+  Status code: 400
+  Body: {
+          "error": "resource-is-binded", 
+          "description": "Cannot delete resource hero(1) due to existing binding. Delete bindings before"
+        }
 
+curl -X DELETE http://localhost:3000/api/v1/missions/1
+  Status code: 200
 
+curl -X DELETE http://localhost:3000/api/v1/heroes/1
+  Status code: 200
 
+curl -X GET http://localhost:3000/api/v1/heroes
+  Status code: 200
+  Body: []
+
+curl -X GET http://localhost:3000/api/v1/missions
+  Status code: 200
+  Body: []
 ```
 
 ## Homeworks
