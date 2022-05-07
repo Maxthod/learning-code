@@ -217,5 +217,5 @@ The API consume and produce JSON.
 
 The API must implement all the functionalities describe in the Super Hero Project.
 
-The API must pass tests describe in the Super Hero Backend Test section
+The API must pass tests describe in the [Super Hero Backend Test](#how-to-test-your-backend-using-curl-supposing-your-app-runs-on-localhost-port-3000) section
 
