@@ -11,7 +11,7 @@ Wanna become a developer ? Follow this guide
 
 ## Documentation / Learn more
 ### HTTP
-Read on [http made really easy](https://www.jmarshall.com/easy/http/) to understand what is the protocol HTTP. This is the main protocol on which the internet websites is built.
+Read on [http made really easy](https://www.jmarshall.com/easy/http/) to understand what is the protocol HTTP. This is the main protocol on which the internet is built.
 
 ### NodeJS
 [NodeJS](https://nodejs.org/en/) is a javascript runtime commonly used to build backends in javascript
@@ -19,14 +19,17 @@ Read on [http made really easy](https://www.jmarshall.com/easy/http/) to underst
 ### Express
 [Express](https://expressjs.com/) is a simple framework in NodeJS used to make javascript backends run on NodeJS.
 
+### JSON
+[JSON](https://www.json.org/json-en.html) (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. We use this format to exchange data often through HTTP.
+
 ## Super Hero Project
 The Super Hero is a RESTful API to manage super heroes and their missions. 
 
-You can read/create/update/delete heroes and missions.
+You can read/create/update/delete heroes and their missions.
 
-One hero can have many mission (one-to-many relationship). 
+One hero can have many missions (one-to-many relationship). 
 
-Each hero and mission has a unique ID. 
+Heroes and missions have a unique ID.
 
 ### Models
 ```
@@ -93,6 +96,8 @@ You will build a simple backend API in [nodejs](https://nodejs.org/en/) using th
 **Requirements**
 
 The API must be RESTful.
+
+The API consume and produce JSON. 
 
 The API must implement all the functionalities describe in the Super Hero Project.
 
