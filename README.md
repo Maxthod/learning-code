@@ -75,7 +75,7 @@ DELETE /api/v1/missions/{id}
 Delete mission {id}
 ```
 
-How to tests your backend using [curl](https://curl.se/). Supposing your app run on localhost port 3000
+#### How to test your backend using [curl](https://curl.se/). Supposing your app runs on localhost port 3000
 ```
 curl -X GET http://localhost:3000/api/v1/heroes
   Status code: 200
@@ -106,7 +106,7 @@ curl -X GET http://localhost:3000/api/v1/heroes
         ]
 
 curl -X POST -d '{"name": "kill Lex Luthor", "superhero": 1}' http://localhost:3000/api/v1/missions
-  Status code: 200
+  Status code: 201
   Body: {
           "id": 1, 
           "name": "kill Lex Luthor", 
@@ -216,4 +216,6 @@ The API must be RESTful.
 The API consume and produce JSON. 
 
 The API must implement all the functionalities describe in the Super Hero Project.
+
+The API must pass tests describe in the Super Hero Backend Test section
 
